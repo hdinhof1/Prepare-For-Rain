@@ -8,10 +8,11 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 
 class Minute: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+    
+    // Insert code here to add functionality to your managed object subclass
 
 }

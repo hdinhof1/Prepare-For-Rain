@@ -8,11 +8,13 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 
 class DataStore {
         var forecasts:[Forecast] = []
-        
+        var minutes: [Minute] = []
+    
         static let sharedDataStore = DataStore()
         private init() {}
         
@@ -55,12 +57,15 @@ class DataStore {
         
         func fetchData ()
         {
-            self.forecasts = fetchDataByEntity("Forecast", key: "date") as! [Forecast]
+            
+            self.forecasts = fetchDataByEntity("Forecast", key: "time") as! [Forecast]
+            self.minutes = fetchDataByEntity("Minute", key: "time") as! [Minute]
             
             ////         perform a fetch request to fill an array property on your datastore
-            if forecasts.count == 0 {
+            /*if forecasts.count == 0 {
                 generateTestData()
-            }
+            } 
+            */
         }
     
         func generateTestData() {
@@ -94,7 +99,20 @@ class DataStore {
             saveContext()
             fetchData()
         }
+    
+        // MARK: - Add New Class
+     func addHourlyForecasts(forecast: Forecast, hourly: [JSON]) {
+        for hour in hourly {
+            let newHour : Hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: managedObjectContext) as! Hour
+            newHour.apparentTemperature = hour["apparentTemperature"].floatValue
+            
+        }
+        
+        saveContext()
+        fetchData()
+    }
 
+    //
     
     
         // MARK: - Core Data stack
@@ -146,6 +164,46 @@ class DataStore {
             return managedObjectContext
         }()
         
+        // MARK: - Constructors for Classes
     
+    // Creates Minute to be saved into managedObjectContext
+    func addMinute(minute dictionary: [String : JSON], toForecast forecast: Forecast) {
+        let minute : Minute = NSEntityDescription.insertNewObjectForEntityForName("Minute", inManagedObjectContext:managedObjectContext) as! Minute
+        
+        let doubleTime = dictionary["time"]?.doubleValue
+        let timeInterval = NSTimeInterval(doubleTime!)
+        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        
+        minute.time = timeAsDate
+        minute.precipIntensity = dictionary["precipIntensity"]?.floatValue
+        minute.precipProbability = dictionary["precipProbability"]?.floatValue
+        minute.forecast = forecast
+        forecast.minutely?.insert(minute)
+        
+        saveContext()
+        fetchData()
+    }
+    
+    //TODO: Not sure if this will correctly return a Forecast object
+    func makeForecast(currently: [String : JSON]) -> Forecast {
+        let forecast : Forecast = NSEntityDescription.insertNewObjectForEntityForName("Forecast", inManagedObjectContext: managedObjectContext) as! Forecast
+        
+        forecast.summary = currently["summary"]?.stringValue
+        forecast.time = currently["time"]?.doubleValue.asNSDate()
+        forecast.currentTemp = currently["temperature"]?.floatValue
+        forecast.currentApparentTemp = currently["apparentTemperature"]?.floatValue
+        forecast.currentHumidity = currently["humidity"]?.floatValue
+        forecast.currentPressure =  currently["pressure"]?.floatValue
+        forecast.currentOzone = currently["ozone"]?.floatValue
+        forecast.currentNearestStormDistance = currently["nearestStormDistance"]?.floatValue
+        forecast.currentPrecipProbability = currently["precipProbability"]?.floatValue
+        forecast.currentPrecipIntensity = currently["precipIntensity"]?.floatValue
+        //forecast.timeZone = currently["timezone"]?.stringValue
+        
+        saveContext()
+        fetchData()
+        
+        return forecast
+    }
 }
 

@@ -10,6 +10,10 @@
 		03F26EB2ABB994942A3DFC31 /* Pods_Prepare_For_Rain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */; };
 		203D38BA89E4E2B90134CF0E /* Pods_Prepare_For_RainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */; };
 		45F0F8BC3A53674337B7F564 /* Pods_Prepare_For_RainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */; };
+		BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */; };
+		BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */; };
+		BA253AA01D7487D400E3C102 /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9E1D7487D400E3C102 /* Forecast+CoreDataProperties.swift */; };
+		BA253AA11D7487D400E3C102 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9F1D7487D400E3C102 /* Forecast.swift */; };
 		BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */; };
 		BA5BA1161D6E8B8E00E3B55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */; };
 		BA5BA1191D6E8B8E00E3B55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */; };
@@ -27,8 +31,7 @@
 		BAA9195F1D73BF4100AE8A81 /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919571D73BF4100AE8A81 /* Hour.swift */; };
 		BAA919601D73BF4100AE8A81 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */; };
 		BAA919611D73BF4100AE8A81 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919591D73BF4100AE8A81 /* Day.swift */; };
-		BAA919641D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */; };
-		BAA919651D73BFFD00AE8A81 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919631D73BFFD00AE8A81 /* Forecast.swift */; };
+		BAA9196B1D73D65700AE8A81 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9196A1D73D65700AE8A81 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,10 @@
 		69DB3E0081CA957E3D935E7E /* Pods-Prepare-For-Rain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-Rain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain.release.xcconfig"; sourceTree = "<group>"; };
 		833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_Rain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_RainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastTableViewController.swift; sourceTree = "<group>"; };
+		BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinuteTableViewController.swift; sourceTree = "<group>"; };
+		BA253A9E1D7487D400E3C102 /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BA253A9F1D7487D400E3C102 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BA5BA1101D6E8B8E00E3B55A /* Prepare-For-Rain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prepare-For-Rain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,8 +86,7 @@
 		BAA919571D73BF4100AE8A81 /* Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hour.swift; sourceTree = "<group>"; };
 		BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAA919591D73BF4100AE8A81 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BAA919631D73BFFD00AE8A81 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		BAA9196A1D73D65700AE8A81 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DF018B64F9E0D471E34ED4AF /* Pods-Prepare-For-RainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainTests/Pods-Prepare-For-RainTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF2AC40881FCF440C2143F21 /* Pods-Prepare-For-Rain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-Rain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,11 +169,12 @@
 			children = (
 				BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */,
 				BAA9194E1D7395D100AE8A81 /* DataStore.swift */,
+				BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */,
 				BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */,
 				BA5BA1441D6E8C1F00E3B55A /* Secrets.swift */,
-				BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */,
-				BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */,
-				BAA919631D73BFFD00AE8A81 /* Forecast.swift */,
+				BAA9196A1D73D65700AE8A81 /* Extensions.swift */,
+				BA253A9E1D7487D400E3C102 /* Forecast+CoreDataProperties.swift */,
+				BA253A9F1D7487D400E3C102 /* Forecast.swift */,
 				BAA919541D73BF4100AE8A81 /* Minute+CoreDataProperties.swift */,
 				BAA919551D73BF4100AE8A81 /* Minute.swift */,
 				BAA919561D73BF4100AE8A81 /* Hour+CoreDataProperties.swift */,
@@ -175,6 +182,8 @@
 				BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */,
 				BAA919591D73BF4100AE8A81 /* Day.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
+				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
+				BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */,
 				BA5BA11D1D6E8B8E00E3B55A /* Assets.xcassets */,
 				BA5BA11F1D6E8B8E00E3B55A /* LaunchScreen.storyboard */,
 				BA5BA1221D6E8B8E00E3B55A /* Info.plist */,
@@ -464,18 +473,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA919611D73BF4100AE8A81 /* Day.swift in Sources */,
+				BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */,
 				BAA919511D73B8A100AE8A81 /* ForecastAPIClient.swift in Sources */,
-				BAA919651D73BFFD00AE8A81 /* Forecast.swift in Sources */,
 				BAA9195F1D73BF4100AE8A81 /* Hour.swift in Sources */,
 				BA5BA1161D6E8B8E00E3B55A /* ViewController.swift in Sources */,
+				BA253AA11D7487D400E3C102 /* Forecast.swift in Sources */,
 				BAA919601D73BF4100AE8A81 /* Day+CoreDataProperties.swift in Sources */,
 				BAA9195C1D73BF4100AE8A81 /* Minute+CoreDataProperties.swift in Sources */,
 				BA5BA1451D6E8C1F00E3B55A /* Secrets.swift in Sources */,
 				BA5BA11C1D6E8B8E00E3B55A /* Prepare_For_Rain.xcdatamodeld in Sources */,
 				BAA9195D1D73BF4100AE8A81 /* Minute.swift in Sources */,
-				BAA919641D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift in Sources */,
+				BA253AA01D7487D400E3C102 /* Forecast+CoreDataProperties.swift in Sources */,
+				BAA9196B1D73D65700AE8A81 /* Extensions.swift in Sources */,
 				BAA9195E1D73BF4100AE8A81 /* Hour+CoreDataProperties.swift in Sources */,
 				BAA9194F1D7395D100AE8A81 /* DataStore.swift in Sources */,
+				BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */,
 				BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

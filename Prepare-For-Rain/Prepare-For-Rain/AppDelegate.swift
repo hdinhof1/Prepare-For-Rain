@@ -13,14 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let store = DataStore.sharedDataStore
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        ForecastAPIClient.getForecastWithCompletion { (json) in
-            
-        }
         
         return true
     }

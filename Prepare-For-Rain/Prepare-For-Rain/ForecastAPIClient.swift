@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ForecastAPIClient {
     
+    let store = DataStore.sharedDataStore
+    
     class func getForecastWithCompletion(completion: (JSON) -> ()) {
         let url = Secrets.url
         
@@ -22,13 +24,24 @@ class ForecastAPIClient {
                     print("Got forecast ")
                     let json = JSON(response.result.value!)
                     let currently = json["currently"].dictionaryValue // entire "currently" dictionary
+                    //let forecast = store.makeForecast(currently)
+
                     let minutely = json["minutely"]["data"].arrayValue // array of minute objects
                     for minute in minutely {
-                        //print (minute)
+                        let minuteDict = minute.dictionaryValue
+                        
                     }
                     let hourly = json["hourly"]["data"].arrayValue
+                    
                     for hour in json["hourly"]["data"].arrayValue {
-                        print(hour)
+                        let time = hour["time"].doubleValue
+                        
+                        
+                        let precipProbability = String(hour["precipProbability"].floatValue)
+                        let apparentTemperature = String(hour["apparentTemperature"].floatValue)
+                        let printString : String = time.bestDate() + " -- " + precipProbability + " " + apparentTemperature
+                        
+                        print (printString)
                     }
                     let daily = json["daily"]["data"].arrayValue
                     

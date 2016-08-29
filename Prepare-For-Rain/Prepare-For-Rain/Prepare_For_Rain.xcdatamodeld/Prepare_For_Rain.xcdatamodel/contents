@@ -25,11 +25,14 @@
         <attribute name="currentHumidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="currentNearestStormDistance" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="currentOzone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentPrecipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentPrecipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="currentPressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="currentTemp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summaryDaily" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeZone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="daily" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Day" inverseName="forecast" inverseEntity="Day" syncable="YES"/>
         <relationship name="hourly" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hour" inverseName="forecast" inverseEntity="Hour" syncable="YES"/>
         <relationship name="minutely" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Minute" inverseName="forecast" inverseEntity="Minute" syncable="YES"/>
@@ -61,9 +64,9 @@
         <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Forecast" inverseName="minutely" inverseEntity="Forecast" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Forecast" positionX="-65" positionY="14" width="128" height="223"/>
-        <element name="Minute" positionX="115" positionY="288" width="128" height="103"/>
-        <element name="Hour" positionX="-72" positionY="316" width="128" height="296"/>
         <element name="Day" positionX="-297" positionY="297" width="128" height="313"/>
+        <element name="Forecast" positionX="-65" positionY="14" width="128" height="270"/>
+        <element name="Hour" positionX="-72" positionY="316" width="128" height="296"/>
+        <element name="Minute" positionX="115" positionY="288" width="128" height="103"/>
     </elements>
 </model>
