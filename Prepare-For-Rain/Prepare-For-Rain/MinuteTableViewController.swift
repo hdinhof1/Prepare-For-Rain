@@ -12,6 +12,8 @@ class MinuteTableViewController: UITableViewController {
     
     let store = DataStore.sharedDataStore
     
+    var minutes = Array<Minute>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,10 +49,9 @@ class MinuteTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = store.minutes[indexPath.row].time?.fullDate()
-        cell.detailTextLabel?.text = "\(store.minutes[indexPath.row].precipProbability)"
+        cell.textLabel?.text = store.minutes[indexPath.row].time?.bestDate()
+        cell.detailTextLabel?.text = "\(store.minutes[indexPath.row].precipProbability!)"
         
-        print ((cell.textLabel?.text)! + " " + (cell.detailTextLabel?.text)!)
         
         return cell
     }

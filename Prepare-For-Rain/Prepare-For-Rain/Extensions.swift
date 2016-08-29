@@ -100,12 +100,12 @@ extension NSDate {
     /**
      Converts NSDate and returns a formatted string.
      
-     - Returns: String e.g. "Sunday, 7 AM"
+     - Returns: String e.g. "Sunday, 7:01 AM"
      
      */
     func bestDate() -> String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEEE, h a"
+        formatter.dateFormat = "EEEE, h:mm a"
         let dateString = formatter.stringFromDate(self)
         
         return dateString
@@ -113,15 +113,31 @@ extension NSDate {
     /**
      Converts NSDate to the hour with minutes.
      
-     - Returns: String e.g. "6:00 AM"
+     - Returns: String e.g. "12:01 PM"
      
      */
-    func fullDate() -> String {
+    func dateHMapm() -> String {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
         let dateString = formatter.stringFromDate(self)
         
         return dateString
+    }
+    
+    /**
+     Converts NSDate to just the day.
+     
+     - Returns: String e.g. "Monday"
+     
+     */
+
+    func dayOfTheWeek() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEEE"
+        let dateString = formatter.stringFromDate(self)
+        
+        return dateString
+
     }
 //    /**
 //     Converts time to day of week and shortest 12-hour format.

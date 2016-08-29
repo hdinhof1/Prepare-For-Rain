@@ -2,7 +2,7 @@
 //  Minute+CoreDataProperties.swift
 //  Prepare-For-Rain
 //
-//  Created by Henry Dinhofer on 8/28/16.
+//  Created by Henry Dinhofer on 8/29/16.
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,9 +14,9 @@ import CoreData
 
 extension Minute {
 
-    @NSManaged var time: NSDate?
     @NSManaged var precipIntensity: NSNumber?
     @NSManaged var precipProbability: NSNumber?
+    @NSManaged var time: NSDate?
     @NSManaged var forecast: Forecast?
 
 }

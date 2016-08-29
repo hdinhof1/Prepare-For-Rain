@@ -6,10 +6,14 @@
         <attribute name="apparentTemperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="apparentTemperatureMinTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="precipIntensityMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipIntensityMaxTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precipType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sunriseTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sunsetTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="temperatureMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -64,7 +68,7 @@
         <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Forecast" inverseName="minutely" inverseEntity="Forecast" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Day" positionX="-297" positionY="297" width="128" height="313"/>
+        <element name="Day" positionX="-297" positionY="297" width="128" height="375"/>
         <element name="Forecast" positionX="-65" positionY="14" width="128" height="270"/>
         <element name="Hour" positionX="-72" positionY="316" width="128" height="296"/>
         <element name="Minute" positionX="115" positionY="288" width="128" height="103"/>

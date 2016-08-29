@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tVt-hl-dvi" kind="show" id="dlP-ka-7qN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,6 +48,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Forecast" id="lyT-FO-go4">
+                        <barButtonItem key="leftBarButtonItem" title="Manually Get Forecast" id="WLw-i3-BWk">
+                            <connections>
+                                <action selector="manuallyGetForecastTapped:" destination="eye-5i-HYh" id="jSe-ob-L11"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Minute &gt; " id="JdW-Eq-gGa">
                             <connections>
                                 <segue destination="tVt-hl-dvi" kind="show" id="zV2-Qm-9hF"/>
@@ -120,4 +128,7 @@
             <point key="canvasLocation" x="28" y="60"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zV2-Qm-9hF"/>
+    </inferredMetricsTieBreakers>
 </document>

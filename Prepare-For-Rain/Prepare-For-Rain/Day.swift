@@ -2,7 +2,7 @@
 //  Day.swift
 //  Prepare-For-Rain
 //
-//  Created by Henry Dinhofer on 8/28/16.
+//  Created by Henry Dinhofer on 8/29/16.
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
 //
 

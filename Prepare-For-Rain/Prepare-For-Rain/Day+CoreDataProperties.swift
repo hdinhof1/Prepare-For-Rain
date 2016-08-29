@@ -2,7 +2,7 @@
 //  Day+CoreDataProperties.swift
 //  Prepare-For-Rain
 //
-//  Created by Henry Dinhofer on 8/28/16.
+//  Created by Henry Dinhofer on 8/29/16.
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,10 +19,14 @@ extension Day {
     @NSManaged var apparentTemperatureMin: NSNumber?
     @NSManaged var apparentTemperatureMinTime: NSDate?
     @NSManaged var humidity: NSNumber?
+    @NSManaged var icon: String?
     @NSManaged var ozone: NSNumber?
     @NSManaged var precipIntensity: NSNumber?
     @NSManaged var precipIntensityMax: NSNumber?
+    @NSManaged var precipIntensityMaxTime: NSDate?
     @NSManaged var precipProbability: NSNumber?
+    @NSManaged var precipType: String?
+    @NSManaged var summary: String?
     @NSManaged var sunriseTime: NSDate?
     @NSManaged var sunsetTime: NSDate?
     @NSManaged var temperatureMax: NSNumber?

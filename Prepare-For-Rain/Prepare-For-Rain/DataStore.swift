@@ -34,13 +34,13 @@ class DataStore {
         }
     
     
-        func fetchDataByEntity(entityName: String, key: String?) -> [AnyObject] {
+    func fetchDataByEntity(entityName: String, key: String?, ascending : Bool) -> [AnyObject] {
             var fetchArray : [AnyObject] = []
             var nserror: NSError?
             let fetchRequest = NSFetchRequest(entityName: entityName)
             
             if let sortKey = key {
-                let createSort = NSSortDescriptor(key: sortKey, ascending: true)
+                let createSort = NSSortDescriptor(key: sortKey, ascending: ascending)
                 fetchRequest.sortDescriptors = [createSort]
             }
             
@@ -58,61 +58,10 @@ class DataStore {
         func fetchData ()
         {
             
-            self.forecasts = fetchDataByEntity("Forecast", key: "time") as! [Forecast]
-            self.minutes = fetchDataByEntity("Minute", key: "time") as! [Minute]
+            self.forecasts = fetchDataByEntity("Forecast", key: "time", ascending: false) as! [Forecast]
+            self.minutes = fetchDataByEntity("Minute", key: "time", ascending: false) as! [Minute]
             
-            ////         perform a fetch request to fill an array property on your datastore
-            /*if forecasts.count == 0 {
-                generateTestData()
-            } 
-            */
-        }
-    
-        func generateTestData() {
-            print("generateData called")
-            
-            /*let pirateOne: Pirate = NSEntityDescription.insertNewObjectForEntityForName("Pirate", inManagedObjectContext: managedObjectContext) as! Pirate
-            
-            pirateOne.name = "Blackbeard"
-            
-            
-            let pirateTwo: Pirate = NSEntityDescription.insertNewObjectForEntityForName("Pirate", inManagedObjectContext: managedObjectContext) as! Pirate
-            
-            pirateTwo.name = "Jack Sparrow"
-            
-            
-            let shipOne: Ship = NSEntityDescription.insertNewObjectForEntityForName("Ship", inManagedObjectContext: managedObjectContext) as! Ship
-            
-            shipOne.name = "Queen Anne's Revenge"
-            
-            
-            let shipTwo: Ship = NSEntityDescription.insertNewObjectForEntityForName("Ship", inManagedObjectContext: managedObjectContext) as! Ship
-            
-            shipTwo.name = "Black Pearl"
-            
-            
-            
-            pirateOne.ships?.insert(shipOne)
-            pirateTwo.ships?.insert(shipTwo)
-            */
-            
-            saveContext()
-            fetchData()
-        }
-    
-        // MARK: - Add New Class
-     func addHourlyForecasts(forecast: Forecast, hourly: [JSON]) {
-        for hour in hourly {
-            let newHour : Hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: managedObjectContext) as! Hour
-            newHour.apparentTemperature = hour["apparentTemperature"].floatValue
-            
-        }
-        
-        saveContext()
-        fetchData()
     }
-
-    //
     
     
         // MARK: - Core Data stack
@@ -164,26 +113,7 @@ class DataStore {
             return managedObjectContext
         }()
         
-        // MARK: - Constructors for Classes
-    
-    // Creates Minute to be saved into managedObjectContext
-    func addMinute(minute dictionary: [String : JSON], toForecast forecast: Forecast) {
-        let minute : Minute = NSEntityDescription.insertNewObjectForEntityForName("Minute", inManagedObjectContext:managedObjectContext) as! Minute
-        
-        let doubleTime = dictionary["time"]?.doubleValue
-        let timeInterval = NSTimeInterval(doubleTime!)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
-        
-        minute.time = timeAsDate
-        minute.precipIntensity = dictionary["precipIntensity"]?.floatValue
-        minute.precipProbability = dictionary["precipProbability"]?.floatValue
-        minute.forecast = forecast
-        forecast.minutely?.insert(minute)
-        
-        saveContext()
-        fetchData()
-    }
-    
+    // MARK: - Creating new Classes insertNewObjectForEntityForName
     //TODO: Not sure if this will correctly return a Forecast object
     func makeForecast(currently: [String : JSON]) -> Forecast {
         let forecast : Forecast = NSEntityDescription.insertNewObjectForEntityForName("Forecast", inManagedObjectContext: managedObjectContext) as! Forecast
@@ -204,6 +134,54 @@ class DataStore {
         fetchData()
         
         return forecast
+    }
+    
+    
+    // Creates Minute to be saved into managedObjectContext
+    func addMinute(minute dictionary: [String : JSON], toForecast forecast: Forecast) {
+        let minute : Minute = NSEntityDescription.insertNewObjectForEntityForName("Minute", inManagedObjectContext:managedObjectContext) as! Minute
+        
+        let doubleTime = dictionary["time"]?.doubleValue
+        let timeInterval = NSTimeInterval(doubleTime!)
+        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        
+        minute.time = timeAsDate
+        minute.precipIntensity = dictionary["precipIntensity"]?.floatValue
+        minute.precipProbability = dictionary["precipProbability"]?.floatValue
+        minute.forecast = forecast
+        forecast.minutely?.insert(minute)
+        
+        saveContext()
+        fetchData()
+    }
+    
+    // Create Hour to be saved into managedObjectContext
+    func addHour(hourly hourList: [JSON], toForecast forecast: Forecast) {
+        for hour in hourList {
+            let newHour : Hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: managedObjectContext) as! Hour
+            
+            
+            newHour.time = hour["time"].doubleValue.asNSDate()
+            
+            print ("New time \(newHour.time?.bestDate()) + ")
+            
+            newHour.icon = hour["icon"].stringValue
+            newHour.precipIntensity = hour["precipIntensity"].floatValue
+            newHour.precipProbability = hour["precipProbability"].floatValue
+            newHour.temperature = hour["temperature"].floatValue
+            newHour.apparentTemperature = hour["apparentTemperature"].floatValue
+            newHour.dewPoint = hour["dewPoint"].floatValue
+            newHour.humidity = hour["humidity"].floatValue
+            newHour.windSpeed = hour["windSpeed"].floatValue
+            newHour.visibility = hour["visibility"].floatValue
+            newHour.cloudCover = hour["cloudCover"].floatValue
+            newHour.pressure = hour["pressure"].floatValue
+            newHour.ozone = hour["ozone"].floatValue
+            forecast.hourly?.insert(newHour)
+        }
+        
+        saveContext()
+        fetchData()
     }
 }
 

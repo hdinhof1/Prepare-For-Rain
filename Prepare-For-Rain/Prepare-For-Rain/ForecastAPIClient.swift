@@ -33,6 +33,7 @@ class ForecastAPIClient {
                     }
                     let hourly = json["hourly"]["data"].arrayValue
                     
+                    
                     for hour in json["hourly"]["data"].arrayValue {
                         let time = hour["time"].doubleValue
                         
