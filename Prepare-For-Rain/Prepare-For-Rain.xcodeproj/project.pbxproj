@@ -19,6 +19,16 @@
 		BA5BA12C1D6E8B8E00E3B55A /* Prepare_For_RainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA12B1D6E8B8E00E3B55A /* Prepare_For_RainTests.swift */; };
 		BA5BA1371D6E8B8E00E3B55A /* Prepare_For_RainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1361D6E8B8E00E3B55A /* Prepare_For_RainUITests.swift */; };
 		BA5BA1451D6E8C1F00E3B55A /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1441D6E8C1F00E3B55A /* Secrets.swift */; };
+		BAA9194F1D7395D100AE8A81 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9194E1D7395D100AE8A81 /* DataStore.swift */; };
+		BAA919511D73B8A100AE8A81 /* ForecastAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */; };
+		BAA9195C1D73BF4100AE8A81 /* Minute+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919541D73BF4100AE8A81 /* Minute+CoreDataProperties.swift */; };
+		BAA9195D1D73BF4100AE8A81 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919551D73BF4100AE8A81 /* Minute.swift */; };
+		BAA9195E1D73BF4100AE8A81 /* Hour+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919561D73BF4100AE8A81 /* Hour+CoreDataProperties.swift */; };
+		BAA9195F1D73BF4100AE8A81 /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919571D73BF4100AE8A81 /* Hour.swift */; };
+		BAA919601D73BF4100AE8A81 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */; };
+		BAA919611D73BF4100AE8A81 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919591D73BF4100AE8A81 /* Day.swift */; };
+		BAA919641D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */; };
+		BAA919651D73BFFD00AE8A81 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA919631D73BFFD00AE8A81 /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +71,16 @@
 		BA5BA1361D6E8B8E00E3B55A /* Prepare_For_RainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prepare_For_RainUITests.swift; sourceTree = "<group>"; };
 		BA5BA1381D6E8B8E00E3B55A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5BA1441D6E8C1F00E3B55A /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		BAA9194E1D7395D100AE8A81 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastAPIClient.swift; sourceTree = "<group>"; };
+		BAA919541D73BF4100AE8A81 /* Minute+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Minute+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAA919551D73BF4100AE8A81 /* Minute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
+		BAA919561D73BF4100AE8A81 /* Hour+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hour+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAA919571D73BF4100AE8A81 /* Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hour.swift; sourceTree = "<group>"; };
+		BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAA919591D73BF4100AE8A81 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAA919631D73BFFD00AE8A81 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		DF018B64F9E0D471E34ED4AF /* Pods-Prepare-For-RainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainTests/Pods-Prepare-For-RainTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF2AC40881FCF440C2143F21 /* Pods-Prepare-For-Rain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-Rain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,8 +162,18 @@
 			isa = PBXGroup;
 			children = (
 				BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */,
+				BAA9194E1D7395D100AE8A81 /* DataStore.swift */,
 				BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */,
 				BA5BA1441D6E8C1F00E3B55A /* Secrets.swift */,
+				BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */,
+				BAA919621D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift */,
+				BAA919631D73BFFD00AE8A81 /* Forecast.swift */,
+				BAA919541D73BF4100AE8A81 /* Minute+CoreDataProperties.swift */,
+				BAA919551D73BF4100AE8A81 /* Minute.swift */,
+				BAA919561D73BF4100AE8A81 /* Hour+CoreDataProperties.swift */,
+				BAA919571D73BF4100AE8A81 /* Hour.swift */,
+				BAA919581D73BF4100AE8A81 /* Day+CoreDataProperties.swift */,
+				BAA919591D73BF4100AE8A81 /* Day.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
 				BA5BA11D1D6E8B8E00E3B55A /* Assets.xcassets */,
 				BA5BA11F1D6E8B8E00E3B55A /* LaunchScreen.storyboard */,
@@ -433,9 +463,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA919611D73BF4100AE8A81 /* Day.swift in Sources */,
+				BAA919511D73B8A100AE8A81 /* ForecastAPIClient.swift in Sources */,
+				BAA919651D73BFFD00AE8A81 /* Forecast.swift in Sources */,
+				BAA9195F1D73BF4100AE8A81 /* Hour.swift in Sources */,
 				BA5BA1161D6E8B8E00E3B55A /* ViewController.swift in Sources */,
+				BAA919601D73BF4100AE8A81 /* Day+CoreDataProperties.swift in Sources */,
+				BAA9195C1D73BF4100AE8A81 /* Minute+CoreDataProperties.swift in Sources */,
 				BA5BA1451D6E8C1F00E3B55A /* Secrets.swift in Sources */,
 				BA5BA11C1D6E8B8E00E3B55A /* Prepare_For_Rain.xcdatamodeld in Sources */,
+				BAA9195D1D73BF4100AE8A81 /* Minute.swift in Sources */,
+				BAA919641D73BFFD00AE8A81 /* Forecast+CoreDataProperties.swift in Sources */,
+				BAA9195E1D73BF4100AE8A81 /* Hour+CoreDataProperties.swift in Sources */,
+				BAA9194F1D7395D100AE8A81 /* DataStore.swift in Sources */,
 				BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

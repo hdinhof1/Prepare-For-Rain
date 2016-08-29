@@ -1,0 +1,6 @@
+framework module Pods_Prepare_For_RainUITests {
+  umbrella header "Pods-Prepare-For-RainUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
