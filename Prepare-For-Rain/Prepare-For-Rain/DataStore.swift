@@ -62,10 +62,6 @@ class DataStore {
         return fetchArray
     }
     
-    func getForecastWithCompletion(completion : () -> ()) {
-        
-    }
-    
     
     // MARK: - Core Data stack
     
@@ -117,7 +113,6 @@ class DataStore {
     }()
     
     // MARK: - Creating new Classes insertNewObjectForEntityForName
-    //TODO: Not sure if this will correctly return a Forecast object
     func makeForecast(currently: [String : JSON]) -> Forecast {
         let forecast : Forecast = NSEntityDescription.insertNewObjectForEntityForName("Forecast", inManagedObjectContext: managedObjectContext) as! Forecast
         
@@ -165,9 +160,6 @@ class DataStore {
             
             
             newHour.time = hour["time"].doubleValue.asNSDate()
-            
-            print ("New time \(newHour.time?.bestDate()) + ")
-            
             newHour.icon = hour["icon"].stringValue
             newHour.precipIntensity = hour["precipIntensity"].floatValue
             newHour.precipProbability = hour["precipProbability"].floatValue
@@ -181,10 +173,63 @@ class DataStore {
             newHour.pressure = hour["pressure"].floatValue
             newHour.ozone = hour["ozone"].floatValue
             forecast.hourly?.insert(newHour)
+            
+            print ("New time \(newHour.time?.bestDate()) with chance of rain \(newHour.precipProbability!) and intensity of rain \(newHour.precipIntensity!)")
         }
         
         saveContext()
         fetchData()
+    }
+    /**
+     Calls Forecast.io and gets new weather data.
+     
+     - Completion: When the function has finished acquiring and setting up the data.
+     
+     */
+    func getForecastWithCompletion(completion : () -> ()) {
+        // If this is the second time or more the user is using the app, checks if we have pulled forecast for today
+        if self.forecasts.count > 0 {
+            guard let mostRecentForecastDate = self.forecasts[0].time?.date() else { print("Unable to unwrap most recent forecast")
+                return }
+            let today = NSDate()
+            let todaysDate = today.date()
+            print ("Is \(mostRecentForecastDate) == \(todaysDate)? \(mostRecentForecastDate == todaysDate)")
+            
+            // If we have already gotten the weather for today, do nothing
+            if mostRecentForecastDate == todaysDate { return }
+            
+        }
+        
+        print ("Getting forecast for today")
+        // All other times the user runs the app
+        ForecastAPIClient.getForecastWithCompletion { (json) in
+            /* How to calculate the size of JSON object --> 28 KB
+             let data = try? json.rawData()
+             let formatted = NSByteCountFormatter.stringFromByteCount(
+             Int64(data!.length),
+             countStyle: NSByteCountFormatterCountStyle.File)
+             
+             print (formatted)
+             */
+            
+            print ("Inside view will appear")
+            let currently = json["currently"].dictionaryValue // entire "currently" dictionary
+            let forecast = self.makeForecast(currently)
+            
+            let minutely = json["minutely"]["data"].arrayValue // array of minute objects
+            for minute in minutely {
+                let minuteDict = minute.dictionaryValue
+                self.addMinute(minute: minuteDict, toForecast: forecast)
+            }
+            
+            let hourly = json["hourly"]["data"].arrayValue  // array of hour objects
+            self.addHour(hourly: hourly, toForecast: forecast)
+            
+            let daily = json["daily"].dictionaryValue
+            
+            completion()
+        }
+        
     }
 }
 

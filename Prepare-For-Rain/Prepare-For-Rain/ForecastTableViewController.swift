@@ -15,6 +15,7 @@ class ForecastTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print ("Did load is after will appear right?")
         store.fetchData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -23,52 +24,15 @@ class ForecastTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    override func viewWillAppear(animated: Bool) {        
-        // Only if this isn't the first time the user is using the app
-        if self.store.forecasts.count > 0 {
-            let mostRecentForecastDay = self.store.forecasts[0].time?.dayOfTheWeek()
-            let today = NSDate()
-            let todaysDay = today.dayOfTheWeek()
-            print ("Is \(mostRecentForecastDay) == \(todaysDay)?")
-            
-            // If we have already gotten the weather for today, do nothing
-            if mostRecentForecastDay == todaysDay { return }
-            
-        }
-        
-        // All other times the user runs the app
-        ForecastAPIClient.getForecastWithCompletion { (json) in
-                    /* How to calculate the size of JSON object
-                     let data = try? json.rawData()
-                    let formatted = NSByteCountFormatter.stringFromByteCount(
-                        Int64(data!.length),
-                        countStyle: NSByteCountFormatterCountStyle.File)
-                    
-                    print (formatted)
-                    */
-            
-            print ("Inside view will appear")
-            let currently = json["currently"].dictionaryValue // entire "currently" dictionary
-            let forecast = self.store.makeForecast(currently)
-            
-            let minutely = json["minutely"]["data"].arrayValue // array of minute objects
-            for minute in minutely {
-                let minuteDict = minute.dictionaryValue
-                self.store.addMinute(minute: minuteDict, toForecast: forecast)
-            }
-            
-            let hourly = json["hourly"]["data"].arrayValue
-            self.store.addHour(hourly: hourly, toForecast: forecast)
-
-            
-            let daily = json["daily"].dictionaryValue
-            
-            
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        store.getForecastWithCompletion {
             self.store.fetchData()
             self.tableView.reloadData()
         }
+        
+        
  
-        super.viewWillAppear(true)
     }
 
     override func didReceiveMemoryWarning() {
