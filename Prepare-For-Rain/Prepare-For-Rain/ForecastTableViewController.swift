@@ -23,9 +23,7 @@ class ForecastTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    override func viewWillAppear(animated: Bool) {
-        guard self.store.forecasts.count == 0  else { return }
-        
+    override func viewWillAppear(animated: Bool) {        
         // Only if this isn't the first time the user is using the app
         if self.store.forecasts.count > 0 {
             let mostRecentForecastDay = self.store.forecasts[0].time?.dayOfTheWeek()
@@ -36,7 +34,7 @@ class ForecastTableViewController: UITableViewController {
             // If we have already gotten the weather for today, do nothing
             if mostRecentForecastDay == todaysDay { return }
             
-        } else { return }
+        }
         
         // All other times the user runs the app
         ForecastAPIClient.getForecastWithCompletion { (json) in
