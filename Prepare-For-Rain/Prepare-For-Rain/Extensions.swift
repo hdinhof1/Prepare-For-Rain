@@ -158,28 +158,4 @@ extension NSDate {
         return dateString
     }
 
-
-    
-    
-//    /**
-//     Converts time to day of week and shortest 12-hour format.
-//     
-//     - Returns: String e.g. "Sunday, 7:00 AM"
-//     
-//     */
-//    func minutesAndSecondsDate() -> String {
-//        let timeInterval = NSTimeInterval(self)
-//        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
-//        
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "EEEE, h m a"
-//        let dateString = formatter.stringFromDate(timeAsDate)
-//        
-//        //let elements = dateString.componentsSeparatedByString(",")
-//        //print (elements)
-//        
-//        return dateString
-//    }
-
-
 }

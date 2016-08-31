@@ -12,6 +12,7 @@
 		45F0F8BC3A53674337B7F564 /* Pods_Prepare_For_RainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */; };
 		BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */; };
 		BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */; };
+		BA3B91511D77443E00EC2BB1 /* HourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */; };
 		BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */; };
 		BA5BA1161D6E8B8E00E3B55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */; };
 		BA5BA1191D6E8B8E00E3B55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_RainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastTableViewController.swift; sourceTree = "<group>"; };
 		BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinuteTableViewController.swift; sourceTree = "<group>"; };
+		BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourTableViewController.swift; sourceTree = "<group>"; };
 		BA5BA1101D6E8B8E00E3B55A /* Prepare-For-Rain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prepare-For-Rain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				BAC33D411D75016700C9A3CE /* Minute.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
 				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
+				BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */,
 				BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */,
 				BA5BA11D1D6E8B8E00E3B55A /* Assets.xcassets */,
 				BA5BA11F1D6E8B8E00E3B55A /* LaunchScreen.storyboard */,
@@ -487,6 +490,7 @@
 				BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */,
 				BAC33D421D75016700C9A3CE /* Day+CoreDataProperties.swift in Sources */,
 				BAC33D451D75016700C9A3CE /* Hour.swift in Sources */,
+				BA3B91511D77443E00EC2BB1 /* HourTableViewController.swift in Sources */,
 				BAC33D491D75016700C9A3CE /* Minute.swift in Sources */,
 				BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ import SwiftyJSON
 class DataStore {
     var forecasts:[Forecast] = []
     var minutes: [Minute] = []
+    var hourly: [Hour] = []
     
     static let sharedDataStore = DataStore()
     private init() {}
@@ -38,7 +39,7 @@ class DataStore {
         
         self.forecasts = fetchDataByEntity("Forecast", key: "time", ascending: false) as! [Forecast]
         self.minutes = fetchDataByEntity("Minute", key: "time", ascending: false) as! [Minute]
-        
+        self.hourly = fetchDataByEntity("Hour", key: "time", ascending: false) as! [Hour]
     }
     
     func fetchDataByEntity(entityName: String, key: String?, ascending : Bool) -> [AnyObject] {
@@ -187,19 +188,6 @@ class DataStore {
      
      */
     func getForecastWithCompletion(completion : () -> ()) {
-        // If this is the second time or more the user is using the app, checks if we have pulled forecast for today
-        if self.forecasts.count > 0 {
-            guard let mostRecentForecastDate = self.forecasts[0].time?.date() else { print("Unable to unwrap most recent forecast")
-                return }
-            let today = NSDate()
-            let todaysDate = today.date()
-            print ("Is \(mostRecentForecastDate) == \(todaysDate)? \(mostRecentForecastDate == todaysDate)")
-            
-            // If we have already gotten the weather for today, do nothing
-            if mostRecentForecastDate == todaysDate { return }
-            
-        }
-        
         print ("Getting forecast for today")
         // All other times the user runs the app
         ForecastAPIClient.getForecastWithCompletion { (json) in
@@ -230,6 +218,22 @@ class DataStore {
             completion()
         }
         
+    }
+    func isFirstTimeFetchingWeatherToday() -> Bool {
+        var isFirstTime : Bool = true
+        
+        // If this is the second time or more the user is using the app, checks if we have pulled forecast for today
+        if self.forecasts.count > 0 {
+            guard let mostRecentForecastDate = self.forecasts[0].time?.date() else { fatalError("Unable to unwrap most recent forecast") }
+            let today = NSDate()
+            let todaysDate = today.date()
+            print ("Is \(mostRecentForecastDate) == \(todaysDate)? \(mostRecentForecastDate == todaysDate)")
+            
+            // If we have already gotten the weather for today, do nothing
+            if mostRecentForecastDate == todaysDate { isFirstTime = false }
+            
+        }
+        return isFirstTime
     }
 }
 

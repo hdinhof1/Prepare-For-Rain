@@ -1,52 +1,31 @@
 //
-//  ForecastTableViewController.swift
+//  HourTableViewController.swift
 //  Prepare-For-Rain
 //
-//  Created by Henry Dinhofer on 8/29/16.
+//  Created by Henry Dinhofer on 8/31/16.
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
 //
 
 import UIKit
 
-class ForecastTableViewController: UITableViewController {
-    
+class HourTableViewController: UITableViewController {
+
     let store = DataStore.sharedDataStore
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        store.fetchData()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        if store.isFirstTimeFetchingWeatherToday() {
-            
-            store.getForecastWithCompletion {
-                self.store.fetchData()
-                self.tableView.reloadData()
-            }
-        }
- 
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func manuallyGetForecastTapped(sender: AnyObject) {
-        self.store.getForecastWithCompletion { 
-            self.tableView.reloadData()
-
-        }
-    }
-    
-    
 
     // MARK: - Table view data source
 
@@ -56,17 +35,18 @@ class ForecastTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return store.forecasts.count
+        return self.store.hourly.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("forecastCell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = store.forecasts[indexPath.row].time?.bestDate()
-        cell.detailTextLabel?.text = "\(store.forecasts[indexPath.row].currentPrecipProbability!)"
+        let cell = tableView.dequeueReusableCellWithIdentifier("hourCell", forIndexPath: indexPath)
         
+        let currentHour = self.store.hourly[indexPath.row]
+        let displayText = "\(currentHour.time!.bestDate()) w/ chance of rain \(currentHour.precipProbability!) & intensity of rain \(currentHour.precipIntensity!)"
+        
+        cell.textLabel?.text = displayText
+        cell.detailTextLabel?.text = currentHour.forecast?.time?.bestDate()
         
         return cell
     }
@@ -107,25 +87,14 @@ class ForecastTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        // Get the row's number we just tapped
-        guard let currentRow = tableView.indexPathForSelectedRow?.row else { print("Couldn't unwrap cell's row in ForecastTableView \(tableView.indexPathForSelectedRow)"); return }
-        
-        if segue.destinationViewController.isKindOfClass(MinuteTableViewController) {
-            let destinationMinutesTableViewController = segue.destinationViewController as! MinuteTableViewController
-            
-            // Weather minute-by-minute for the next hour
-            guard let minuteSet = self.store.forecasts[currentRow].minutely else { print("Couldn't get Set<Minute> from DataStore"); return }
-            let minutesArray = Array(minuteSet)
-            destinationMinutesTableViewController.minutes = minutesArray
-        }
-        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
