@@ -24,7 +24,7 @@ extension Forecast {
     @NSManaged var currentTemp: NSNumber?
     @NSManaged var summary: String?
     @NSManaged var summaryDaily: String?
-    @NSManaged var time: NSDate?
+    @NSManaged var time: Date?
     @NSManaged var timeZone: String?
     @NSManaged var daily: Set<Day>?
     @NSManaged var hourly: Set<Hour>?

@@ -14,13 +14,14 @@ class ForecastAPIClient {
     
     let store = DataStore.sharedDataStore
     
-    class func getForecastWithCompletion(completion: (JSON) -> ()) {
+    class func getForecastWithCompletion(_ completion: @escaping (JSON) -> ()) {
         let url = Secrets.url
         
-        Alamofire.request(.GET, url)
+        
+        Alamofire.request(url)
             .responseJSON { (response) in
                 switch response.result {
-                case .Success:
+                case .success:
                     print("Got forecast ")
                     let json = JSON(response.result.value!)
                     let currently = json["currently"].dictionaryValue // entire "currently" dictionary
@@ -48,7 +49,7 @@ class ForecastAPIClient {
                     
                     completion(json)
                     
-                case .Failure(let error):
+                case .failure(let error):
                     print("Something went wrong getting repos \(error)")
                 }
         }
@@ -57,27 +58,46 @@ class ForecastAPIClient {
     
     
     // AlamoFire Request With HTTP Status Codes
-    class func getRequestWithStatusCodes(completion:(Bool) -> ()) {
+    class func getRequestWithStatusCodes(_ completion:@escaping (Bool) -> ()) {
         let url = Secrets.url
         //let authHeaders = ["Authorization": "\(Secrets.personal_access_token)"]
+
         
-        Alamofire.request(.GET,
-            url,
-            parameters: nil,
-            encoding: ParameterEncoding.JSON,
-            headers: nil).validate()
-            .responseJSON { (data) in
-                if let httpStatusCode = data.response?.statusCode {
-                    switch httpStatusCode {
-                    case 204:
-                        completion(true)
-                    case 404:
-                        completion(false)
-                    default:
-                        print("Other status code \(httpStatusCode) with error \(data.result.error) ")
-                    }
+        Alamofire.request(url,
+                          method: .get,
+                          parameters: nil,
+                          encoding: JSONEncoding.default,
+                          headers: nil).validate()
+        .responseJSON { (data) in
+            if let httpStatusCode = data.response?.statusCode {
+                switch httpStatusCode {
+                case 204:
+                    completion(true)
+                case 404:
+                    completion(false)
+                default:
+                    print("Other status code \(httpStatusCode) with error \(data.result.error) ")
                 }
-                
+            }
         }
+        // Swift 2.3
+//        Alamofire.request(.GET,
+//            url,
+//            parameters: nil,
+//            encoding: ParameterEncoding.JSON,
+//            headers: nil).validate()
+//            .responseJSON { (data) in
+//                if let httpStatusCode = data.response?.statusCode {
+//                    switch httpStatusCode {
+//                    case 204:
+//                        completion(true)
+//                    case 404:
+//                        completion(false)
+//                    default:
+//                        print("Other status code \(httpStatusCode) with error \(data.result.error) ")
+//                    }
+//                }
+//                
+//        }
     }
 }

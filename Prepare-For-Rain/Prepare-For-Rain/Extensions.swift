@@ -17,13 +17,13 @@ extension Double {
 
     */
     func extendedDate() -> String {
-        let timeInterval = NSTimeInterval(self)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        let timeInterval = TimeInterval(self)
+        let timeAsDate = Date(timeIntervalSince1970: timeInterval)
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(timeAsDate)
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.full
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: timeAsDate)
         
         return dateString
     }
@@ -34,13 +34,13 @@ extension Double {
      
      */
     func shortDate() -> String {
-        let timeInterval = NSTimeInterval(self)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        let timeInterval = TimeInterval(self)
+        let timeAsDate = Date(timeIntervalSince1970: timeInterval)
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(timeAsDate)
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.short
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: timeAsDate)
         
         return dateString
     }
@@ -52,12 +52,12 @@ extension Double {
      
      */
     func hour() -> String {
-        let timeInterval = NSTimeInterval(self)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        let timeInterval = TimeInterval(self)
+        let timeAsDate = Date(timeIntervalSince1970: timeInterval)
         
-        let formatter = NSDateFormatter()
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(timeAsDate)
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: timeAsDate)
         
         return dateString
     }
@@ -68,12 +68,12 @@ extension Double {
      
      */
     func bestDate() -> String {
-        let timeInterval = NSTimeInterval(self)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+        let timeInterval = TimeInterval(self)
+        let timeAsDate = Date(timeIntervalSince1970: timeInterval)
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, h a"
-        let dateString = formatter.stringFromDate(timeAsDate)
+        let dateString = formatter.string(from: timeAsDate)
         
         //let elements = dateString.componentsSeparatedByString(",")
         //print (elements)
@@ -87,15 +87,21 @@ extension Double {
      - Returns: NSDate e.g. "1472479258"
      
      */
-    func asNSDate() -> NSDate {
-        let timeInterval = NSTimeInterval(self)
-        let timeAsDate = NSDate(timeIntervalSince1970: timeInterval)
+    func asNSDate() -> Date {
+        let timeInterval = TimeInterval(self)
+        let timeAsDate = Date(timeIntervalSince1970: timeInterval)
         
         return timeAsDate
     }
 }
 
-extension NSDate {
+extension Date {
+    
+    // To show future Henry the dateByAddingTimeInterval method
+    func addInterval(_ inSeconds: Int) {
+        Date().addingTimeInterval(30 * 60) // 30 minutes from current time
+    }
+    
     // MARK: - Date
     /**
     Converts date to shorthand day format.
@@ -105,10 +111,10 @@ extension NSDate {
     */
     func date() -> String {
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        formatter.timeStyle = .NoStyle
-        let dateString = formatter.stringFromDate(self)
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.short
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: self)
         
         return dateString
     }
@@ -120,9 +126,9 @@ extension NSDate {
      */
     
     func dayOfTheWeek() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "EEEE"
-        let dateString = formatter.stringFromDate(self)
+        let dateString = formatter.string(from: self)
         
         return dateString
         
@@ -136,9 +142,9 @@ extension NSDate {
      
      */
     func dateHMapm() -> String {
-        let formatter = NSDateFormatter()
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(self)
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: self)
         
         return dateString
     }
@@ -151,9 +157,9 @@ extension NSDate {
      
      */
     func bestDate() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, h:mm a"
-        let dateString = formatter.stringFromDate(self)
+        let dateString = formatter.string(from: self)
         
         return dateString
     }

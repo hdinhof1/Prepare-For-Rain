@@ -25,7 +25,7 @@ extension Hour {
     @NSManaged var pressure: NSNumber?
     @NSManaged var summary: String?
     @NSManaged var temperature: NSNumber?
-    @NSManaged var time: NSDate?
+    @NSManaged var time: Date?
     @NSManaged var visibility: NSNumber?
     @NSManaged var windSpeed: NSNumber?
     @NSManaged var forecast: Forecast?

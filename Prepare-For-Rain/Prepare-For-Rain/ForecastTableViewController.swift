@@ -23,7 +23,7 @@ class ForecastTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if store.isFirstTimeFetchingWeatherToday() {
             
@@ -39,7 +39,7 @@ class ForecastTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func manuallyGetForecastTapped(sender: AnyObject) {
+    @IBAction func manuallyGetForecastTapped(_ sender: AnyObject) {
         self.store.getForecastWithCompletion { 
             self.tableView.reloadData()
 
@@ -50,22 +50,22 @@ class ForecastTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return store.forecasts.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("forecastCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath)
 
-        cell.textLabel?.text = store.forecasts[indexPath.row].time?.bestDate()
-        cell.detailTextLabel?.text = "\(store.forecasts[indexPath.row].currentPrecipProbability!)"
+        cell.textLabel?.text = store.forecasts[(indexPath as NSIndexPath).row].time?.bestDate()
+        cell.detailTextLabel?.text = "\(store.forecasts[(indexPath as NSIndexPath).row].currentPrecipProbability!)"
         
         
         return cell
@@ -111,13 +111,13 @@ class ForecastTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Get the row's number we just tapped
-        guard let currentRow = tableView.indexPathForSelectedRow?.row else { print("Couldn't unwrap cell's row in ForecastTableView \(tableView.indexPathForSelectedRow)"); return }
+        guard let currentRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row else { print("Couldn't unwrap cell's row in ForecastTableView \(tableView.indexPathForSelectedRow)"); return }
         
-        if segue.destinationViewController.isKindOfClass(MinuteTableViewController) {
-            let destinationMinutesTableViewController = segue.destinationViewController as! MinuteTableViewController
+        if segue.destination.isKind(of: MinuteTableViewController.self) {
+            let destinationMinutesTableViewController = segue.destination as! MinuteTableViewController
             
             // Weather minute-by-minute for the next hour
             guard let minuteSet = self.store.forecasts[currentRow].minutely else { print("Couldn't get Set<Minute> from DataStore"); return }

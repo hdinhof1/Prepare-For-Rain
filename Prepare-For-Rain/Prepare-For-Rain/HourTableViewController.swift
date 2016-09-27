@@ -29,20 +29,20 @@ class HourTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.store.hourly.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("hourCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "hourCell", for: indexPath)
         
-        let currentHour = self.store.hourly[indexPath.row]
+        let currentHour = self.store.hourly[(indexPath as NSIndexPath).row]
         let displayText = "\(currentHour.time!.bestDate()) w/ chance of rain \(currentHour.precipProbability!) & intensity of rain \(currentHour.precipIntensity!)"
         
         cell.textLabel?.text = displayText

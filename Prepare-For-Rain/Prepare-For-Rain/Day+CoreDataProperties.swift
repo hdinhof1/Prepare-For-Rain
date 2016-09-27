@@ -15,25 +15,25 @@ import CoreData
 extension Day {
 
     @NSManaged var apparentTemperatureMax: NSNumber?
-    @NSManaged var apparentTemperatureMaxTime: NSDate?
+    @NSManaged var apparentTemperatureMaxTime: Date?
     @NSManaged var apparentTemperatureMin: NSNumber?
-    @NSManaged var apparentTemperatureMinTime: NSDate?
+    @NSManaged var apparentTemperatureMinTime: Date?
     @NSManaged var humidity: NSNumber?
     @NSManaged var icon: String?
     @NSManaged var ozone: NSNumber?
     @NSManaged var precipIntensity: NSNumber?
     @NSManaged var precipIntensityMax: NSNumber?
-    @NSManaged var precipIntensityMaxTime: NSDate?
+    @NSManaged var precipIntensityMaxTime: Date?
     @NSManaged var precipProbability: NSNumber?
     @NSManaged var precipType: String?
     @NSManaged var summary: String?
-    @NSManaged var sunriseTime: NSDate?
-    @NSManaged var sunsetTime: NSDate?
+    @NSManaged var sunriseTime: Date?
+    @NSManaged var sunsetTime: Date?
     @NSManaged var temperatureMax: NSNumber?
-    @NSManaged var temperatureMaxTime: NSDate?
+    @NSManaged var temperatureMaxTime: Date?
     @NSManaged var temperatureMin: NSNumber?
-    @NSManaged var temperatureMinTime: NSDate?
-    @NSManaged var time: NSDate?
+    @NSManaged var temperatureMinTime: Date?
+    @NSManaged var time: Date?
     @NSManaged var windSpeed: NSNumber?
     @NSManaged var forecast: Forecast?
 

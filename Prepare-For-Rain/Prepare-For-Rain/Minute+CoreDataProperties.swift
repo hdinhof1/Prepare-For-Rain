@@ -16,7 +16,7 @@ extension Minute {
 
     @NSManaged var precipIntensity: NSNumber?
     @NSManaged var precipProbability: NSNumber?
-    @NSManaged var time: NSDate?
+    @NSManaged var time: Date?
     @NSManaged var forecast: Forecast?
 
 }
