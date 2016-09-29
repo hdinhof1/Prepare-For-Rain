@@ -64,8 +64,14 @@ class ForecastTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath)
 
-        cell.textLabel?.text = store.forecasts[(indexPath as NSIndexPath).row].time?.bestDate()
-        cell.detailTextLabel?.text = "\(store.forecasts[(indexPath as NSIndexPath).row].currentPrecipProbability!)"
+        let precipitationProbability = store.forecasts[indexPath.row].currentPrecipProbability
+        let precipitationProbabilityAsFloat = precipitationProbability as! Float
+        let precipitationProbabilityAsPercentage = precipitationProbabilityAsFloat * 100
+        
+        
+        guard let time = store.forecasts[(indexPath as NSIndexPath).row].time else { fatalError("Couldn't unwrap forecast time") }
+        cell.textLabel?.text = "\(time.dateHMapm())"
+        cell.detailTextLabel?.text = "\(precipitationProbabilityAsPercentage)%"
         
         
         return cell
@@ -114,15 +120,20 @@ class ForecastTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Get the row's number we just tapped
-        guard let currentRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row else { print("Couldn't unwrap cell's row in ForecastTableView \(tableView.indexPathForSelectedRow)"); return }
+        guard let currentRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row else { print("Couldn't unwrap cell's row in ForecastTableView you called segue on button and didnt tap a table cell \(tableView.indexPathForSelectedRow)"); return }
         
         if segue.destination.isKind(of: MinuteTableViewController.self) {
             let destinationMinutesTableViewController = segue.destination as! MinuteTableViewController
             
             // Weather minute-by-minute for the next hour
-            guard let minuteSet = self.store.forecasts[currentRow].minutely else { print("Couldn't get Set<Minute> from DataStore"); return }
+            guard let minuteSet : Set<Minute> = self.store.forecasts[currentRow].minutely else { print("Couldn't get Set<Minute> from DataStore"); return }
             let minutesArray = Array(minuteSet)
-            destinationMinutesTableViewController.minutes = minutesArray
+            let sortedMinutes = minutesArray.sorted(by: { (first, second) -> Bool in
+                guard let firstTime = first.time else { fatalError("Unable to unwrap first time") }
+                guard let secondTime = second.time else { fatalError("Unable to unwrap second time") }
+                return firstTime < secondTime
+            })
+            destinationMinutesTableViewController.minutes = sortedMinutes
         }
         
     }

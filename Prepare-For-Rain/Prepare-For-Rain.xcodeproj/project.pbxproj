@@ -10,6 +10,7 @@
 		03F26EB2ABB994942A3DFC31 /* Pods_Prepare_For_Rain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */; };
 		203D38BA89E4E2B90134CF0E /* Pods_Prepare_For_RainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */; };
 		45F0F8BC3A53674337B7F564 /* Pods_Prepare_For_RainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */; };
+		BA1DAE441D9DA8DD003A9987 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */; };
 		BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */; };
 		BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */; };
 		BA3B91511D77443E00EC2BB1 /* HourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */; };
@@ -60,6 +61,7 @@
 		69DB3E0081CA957E3D935E7E /* Pods-Prepare-For-Rain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-Rain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain.release.xcconfig"; sourceTree = "<group>"; };
 		833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_Rain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_RainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareViewController.swift; sourceTree = "<group>"; };
 		BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastTableViewController.swift; sourceTree = "<group>"; };
 		BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinuteTableViewController.swift; sourceTree = "<group>"; };
 		BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourTableViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */,
 				BAC33D411D75016700C9A3CE /* Minute.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
+				BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */,
 				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
 				BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */,
 				BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */,
@@ -497,6 +500,7 @@
 				BAC33D461D75016700C9A3CE /* Forecast+CoreDataProperties.swift in Sources */,
 				BAA9194F1D7395D100AE8A81 /* DataStore.swift in Sources */,
 				BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */,
+				BA1DAE441D9DA8DD003A9987 /* PrepareViewController.swift in Sources */,
 				BAC33D421D75016700C9A3CE /* Day+CoreDataProperties.swift in Sources */,
 				BAC33D451D75016700C9A3CE /* Hour.swift in Sources */,
 				BA3B91511D77443E00EC2BB1 /* HourTableViewController.swift in Sources */,

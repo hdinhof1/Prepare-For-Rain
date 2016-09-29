@@ -40,18 +40,23 @@ class MinuteTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return store.minutes.count
+        return minutes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "minuteCell", for: indexPath)
-
+        
         // Configure the cell...
+        guard let time = minutes[indexPath.row].time else { fatalError("Unable to unwrap minutes time") }
+        guard let precipitationProbability = minutes[indexPath.row].precipProbability else { fatalError("Unable to unwrap minutes precipitation probability") }
+        let precipitationProbabilityAsFloat = precipitationProbability as Float
+        let precipitationProbabilityAsPercentage = Int(precipitationProbabilityAsFloat * 100)
+
         
-        cell.textLabel?.text = store.minutes[(indexPath as NSIndexPath).row].time?.bestDate()
-        cell.detailTextLabel?.text = "\(store.minutes[(indexPath as NSIndexPath).row].precipProbability!)"
         
+        cell.textLabel?.text = "\(time.date()), \(time.dateHMapm())"
+        cell.detailTextLabel?.text = "\(precipitationProbabilityAsPercentage)%"        
         
         return cell
     }

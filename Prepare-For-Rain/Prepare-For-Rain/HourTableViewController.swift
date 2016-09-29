@@ -12,6 +12,8 @@ class HourTableViewController: UITableViewController {
 
     let store = DataStore.sharedDataStore
     
+    var hours = Array<Hour>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,9 @@ class HourTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        getTodaysHourlyWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +47,19 @@ class HourTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hourCell", for: indexPath)
         
-        let currentHour = self.store.hourly[(indexPath as NSIndexPath).row]
-        let displayText = "\(currentHour.time!.bestDate()) w/ chance of rain \(currentHour.precipProbability!) & intensity of rain \(currentHour.precipIntensity!)"
+        
+        
+        let precipitationProbability = self.store.hourly[indexPath.row].precipProbability
+        let precipitationProbabilityAsFloat = precipitationProbability as! Float
+        let precipitationProbabilityAsPercentage = Int(precipitationProbabilityAsFloat * 100)
+        
+        let precipitationIntensity = self.store.hourly[indexPath.row].precipIntensity
+        let precipitationIntensityAsFloat = precipitationIntensity as! Float
+        let precipitationIntensityPerInch = precipitationIntensityAsFloat * 100 // totally made up the inches part
+        
+        guard let time = self.store.hourly[indexPath.row].time else { fatalError("Couldn't unwrap hourly time") }
+        let currentHour = self.store.hourly[indexPath.row]
+        let displayText = "\(time.date()) w/ chance of rain \(precipitationProbabilityAsPercentage)% & intensity of rain \(precipitationIntensityPerInch)"
         
         cell.textLabel?.text = displayText
         cell.detailTextLabel?.text = currentHour.forecast?.time?.bestDate()
@@ -51,6 +67,34 @@ class HourTableViewController: UITableViewController {
         return cell
     }
     
+    func getTodaysHourlyWeather() {
+        guard let hourly : Set<Hour> = self.store.forecasts.first?.hourly else { print("Couldn't get Set<Hour> from DataStore"); return }
+        let hoursArray = Array(hourly)
+        
+        // Take only today's hourly weather
+        let filteredHours = hoursArray.filter { (hour) -> Bool in
+            let today = Date().date()
+            guard let hoursTime = hour.time else { fatalError("Couldn't unrwap hours time") }
+            let hoursDay = hoursTime.date()
+            return today == hoursDay
+        }
+        
+        // Then display from current hour ---> to end of day
+        let sortedHours = filteredHours.sorted(by: { (first, second) -> Bool in
+            guard let firstTime = first.time else { fatalError("Unable to unwrap first time") }
+            guard let secondTime = second.time else { fatalError("Unable to unwrap second time") }
+            return firstTime < secondTime
+        })
+        
+        
+        
+        self.hours = sortedHours
+        for hour in self.hours {
+            print("Sorted hours \(hour.time?.date()) at \(hour.time?.dateHMapm()) AND chance of rain \(hour.precipProbability)")
+        }
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

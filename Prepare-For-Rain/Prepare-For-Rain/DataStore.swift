@@ -179,6 +179,7 @@ class DataStore {
             newHour.ozone = hour["ozone"].floatValue as NSNumber?
             forecast.hourly?.insert(newHour)
             
+
             print ("New time \(newHour.time?.bestDate()) with chance of rain \(newHour.precipProbability!) and intensity of rain \(newHour.precipIntensity!)")
         }
         
