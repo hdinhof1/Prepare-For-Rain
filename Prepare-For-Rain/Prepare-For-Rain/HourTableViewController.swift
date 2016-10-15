@@ -40,7 +40,7 @@ class HourTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.store.hourly.count
+        return self.hours.count
     }
 
     
@@ -49,20 +49,27 @@ class HourTableViewController: UITableViewController {
         
         
         
-        let precipitationProbability = self.store.hourly[indexPath.row].precipProbability
-        let precipitationProbabilityAsFloat = precipitationProbability as! Float
+        guard let precipitationProbability = self.hours[indexPath.row].precipProbability else { fatalError("Couldn't unwrap hourly precipitation probability") }
+        let precipitationProbabilityAsFloat = precipitationProbability as Float
         let precipitationProbabilityAsPercentage = Int(precipitationProbabilityAsFloat * 100)
+        var isGonnaRain : Bool = false
+        let MINIMUM_PROBABILITY = 50
+        if precipitationProbabilityAsPercentage > MINIMUM_PROBABILITY { isGonnaRain = true }
         
-        let precipitationIntensity = self.store.hourly[indexPath.row].precipIntensity
-        let precipitationIntensityAsFloat = precipitationIntensity as! Float
+        guard let precipitationIntensity = self.hours[indexPath.row].precipIntensity else { fatalError("Unable to unwrap hourly precipitation intensity") }
+        let precipitationIntensityAsFloat = precipitationIntensity as Float
         let precipitationIntensityPerInch = precipitationIntensityAsFloat * 100 // totally made up the inches part
+    
+        guard let time = self.hours[indexPath.row].time else { fatalError("Couldn't unwrap hourly time") }
+        let currentHour = self.hours[indexPath.row]
         
-        guard let time = self.store.hourly[indexPath.row].time else { fatalError("Couldn't unwrap hourly time") }
-        let currentHour = self.store.hourly[indexPath.row]
-        let displayText = "\(time.date()) w/ chance of rain \(precipitationProbabilityAsPercentage)% & intensity of rain \(precipitationIntensityPerInch)"
-        
+        let displayText = "\(time.dateHMapm()) w/ chance of rain \(precipitationProbabilityAsPercentage)% & intensity of rain \(precipitationIntensityPerInch)"
         cell.textLabel?.text = displayText
         cell.detailTextLabel?.text = currentHour.forecast?.time?.bestDate()
+        
+        if isGonnaRain {
+            cell.textLabel?.textColor = UIColor.blue
+        }
         
         return cell
     }
@@ -87,13 +94,21 @@ class HourTableViewController: UITableViewController {
         })
         
         
+        self.hours = sortedHours
+        
+    }
+    
+    func getThreeDaysOfHourlyWeather() {
+        guard let hourly : Set<Hour> = self.store.forecasts.first?.hourly else { print("Couldn't get Set<Hour> from DataStore"); return }
+        let hoursArray = Array(hourly)
+        
+        let sortedHours = hoursArray.sorted(by: { (first, second) -> Bool in
+            guard let firstTime = first.time else { fatalError("Unable to unwrap first time") }
+            guard let secondTime = second.time else { fatalError("Unable to unwrap second time") }
+            return firstTime < secondTime
+        })
         
         self.hours = sortedHours
-        for hour in self.hours {
-            print("Sorted hours \(hour.time?.date()) at \(hour.time?.dateHMapm()) AND chance of rain \(hour.precipProbability)")
-        }
-        
-        
     }
 
     /*

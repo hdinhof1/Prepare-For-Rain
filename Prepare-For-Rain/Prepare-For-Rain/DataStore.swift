@@ -240,5 +240,17 @@ class DataStore {
         }
         return isFirstTime
     }
+    func getThreeDaysOfHourlyWeather() -> [Hour] {
+        guard let hourly : Set<Hour> = self.forecasts.first?.hourly else { print("Couldn't get Set<Hour> from DataStore"); return [Hour]() }
+        let hoursArray = Array(hourly)
+        
+        let sortedHours = hoursArray.sorted(by: { (first, second) -> Bool in
+            guard let firstTime = first.time else { fatalError("Unable to unwrap first time") }
+            guard let secondTime = second.time else { fatalError("Unable to unwrap second time") }
+            return firstTime < secondTime
+        })
+        
+        return sortedHours
+    }
 }
 

@@ -66,11 +66,11 @@ class ForecastTableViewController: UITableViewController {
 
         let precipitationProbability = store.forecasts[indexPath.row].currentPrecipProbability
         let precipitationProbabilityAsFloat = precipitationProbability as! Float
-        let precipitationProbabilityAsPercentage = precipitationProbabilityAsFloat * 100
+        let precipitationProbabilityAsPercentage = Int(precipitationProbabilityAsFloat * 100)
         
         
         guard let time = store.forecasts[(indexPath as NSIndexPath).row].time else { fatalError("Couldn't unwrap forecast time") }
-        cell.textLabel?.text = "\(time.dateHMapm())"
+        cell.textLabel?.text = "\(time.date()) at \(time.dateHMapm())"
         cell.detailTextLabel?.text = "\(precipitationProbabilityAsPercentage)%"
         
         
@@ -120,7 +120,7 @@ class ForecastTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Get the row's number we just tapped
-        guard let currentRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row else { print("Couldn't unwrap cell's row in ForecastTableView you called segue on button and didnt tap a table cell \(tableView.indexPathForSelectedRow)"); return }
+        guard let currentRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row else { print("Couldn't unwrap cell's row in ForecastTableView you called segue on button \(tableView.indexPathForSelectedRow)"); return } // and didnt tap a table cell
         
         if segue.destination.isKind(of: MinuteTableViewController.self) {
             let destinationMinutesTableViewController = segue.destination as! MinuteTableViewController
