@@ -6,6 +6,10 @@
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
 //
 
+//TODO: Get weather for just twoDays() -- up until 4am next day
+//TODO: Incorporate Bluetooth LE
+//TODO: Update plist file for background proceses
+
 import UIKit
 
 class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -51,7 +55,9 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        
+        
+        //let cell = UITableViewCell()
         
         guard let precipitationProbability = self.hours[indexPath.row].precipProbability else { fatalError("Couldn't unwrap hourly precipitation probability") }
         let precipitationProbabilityAsFloat = precipitationProbability as Float
@@ -67,8 +73,8 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let time = self.hours[indexPath.row].time else { fatalError("Couldn't unwrap hourly time") }
         let currentHour = self.hours[indexPath.row]
         
-        let displayText = "\(time.dateHMapm()) w/ chance of rain \(precipitationProbabilityAsPercentage)% & intensity of rain \(precipitationIntensityPerInch)"
-        
+        //let displayText = "\(time.dateHMapm()) w/ chance of rain \(precipitationProbabilityAsPercentage)% & intensity of rain \(precipitationIntensityPerInch)"
+        /*
         cell.textLabel?.text = displayText
         //cell.imageView?.image = UIImage(named: "rain")
         cell.detailTextLabel?.text = currentHour.forecast?.time?.bestDate()
@@ -79,7 +85,24 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
             youShouldOrNtPrepareForRain.text = "You should prepare for rain"
         }
         cell.textLabel?.font = UIFont(name: "Arial", size: 14.0)
+        */
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! WeatherTableViewCell
+        cell.timeLabel.text = "\(time.shortenedBestDate())"
+        cell.percentChanceLabel.text = "Pct chance: \(precipitationProbability)%"
+        cell.intensityRainLabel.text = "Intensity of rain \(precipitationIntensityPerInch)in"
+ 
+        
+        
+        print("\(cell.timeLabel.text) \(cell.percentChanceLabel.text) \(cell.intensityRainLabel.text)")
+        
+        if isGonnaRain {
+            cell.tintColor = UIColor.blue
+            yesNoRainLabel.text = "YES"
+            youShouldOrNtPrepareForRain.text = "You should prepare for rain"
+            view.backgroundColor = UIColor.blue
+        }
+ 
         return cell
     }
     

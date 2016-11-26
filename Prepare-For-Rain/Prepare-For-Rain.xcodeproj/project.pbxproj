@@ -34,6 +34,7 @@
 		BAC33D471D75016700C9A3CE /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3F1D75016700C9A3CE /* Forecast.swift */; };
 		BAC33D481D75016700C9A3CE /* Minute+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */; };
 		BAC33D491D75016700C9A3CE /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D411D75016700C9A3CE /* Minute.swift */; };
+		BAEFCE401DEA1F86009165B2 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFCE3F1DEA1F86009165B2 /* WeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		BAC33D3F1D75016700C9A3CE /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Minute+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAC33D411D75016700C9A3CE /* Minute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
+		BAEFCE3F1DEA1F86009165B2 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		DF018B64F9E0D471E34ED4AF /* Pods-Prepare-For-RainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainTests/Pods-Prepare-For-RainTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF2AC40881FCF440C2143F21 /* Pods-Prepare-For-Rain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-Rain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +188,7 @@
 				BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */,
 				BAC33D411D75016700C9A3CE /* Minute.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
+				BAEFCE3F1DEA1F86009165B2 /* WeatherTableViewCell.swift */,
 				BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */,
 				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
 				BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */,
@@ -487,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEFCE401DEA1F86009165B2 /* WeatherTableViewCell.swift in Sources */,
 				BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */,
 				BAC33D441D75016700C9A3CE /* Hour+CoreDataProperties.swift in Sources */,
 				BAA919511D73B8A100AE8A81 /* ForecastAPIClient.swift in Sources */,

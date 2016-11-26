@@ -133,6 +133,23 @@ extension Date {
         return dateString
         
     }
+    /**
+     Converts NSDate to just the 3-letter abbreviation day.
+     
+     - Returns: String e.g. "Tue"
+     
+     */
+    
+    func shortDayOfTheWeek() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        let dateString = formatter.string(from: self)
+        
+        return dateString
+        
+    }
+
+    
     
     // MARK: Time
     /**
@@ -141,6 +158,12 @@ extension Date {
      - Returns: String e.g. "12:01 PM"
      
      */
+    
+    // The user gets scheduled for push notification an hour before the event and at the time of the event
+    // If user cancels, increase the UserDefaults value for ticket id by one
+    // If user schedules new, increase the UserDefaults value for ticket id by one
+    // Have to access array of all the local notifications
+    
     func dateHMapm() -> String {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -159,6 +182,20 @@ extension Date {
     func bestDate() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, h:mm a"
+        let dateString = formatter.string(from: self)
+        
+        return dateString
+    }
+    
+    /**
+     Converts NSDate and returns an abbreviated string with day and time.
+     
+     - Returns: String e.g. "Tue, 7:01 AM"
+     
+     */
+    func shortenedBestDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE, h:mm a"
         let dateString = formatter.string(from: self)
         
         return dateString
