@@ -186,7 +186,6 @@ extension Date {
         
         return dateString
     }
-    
     /**
      Converts NSDate and returns an abbreviated string with day and time.
      
@@ -201,4 +200,32 @@ extension Date {
         return dateString
     }
 
+    func hourTo24() -> Int? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "k"
+        let dateString = formatter.string(from: self)
+        
+        let hourAsInteger = Int(dateString)
+        return hourAsInteger
+        
+    }
+    
+    /// Converts a Date to an integer describing the weekday
+    ///
+    /// - Returns: an integer from 1 - 7, with 1 being Sunday and 7 being Saturday
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+    
+    
+    /// Gets tomorrow's weekday as an integer
+    ///
+    /// - Returns: an integer from 1 - 7, with 1 being Sunday and 7 being Saturday
+    func tomorrowsNumberOfTheWeek() -> Int {
+        guard let numberOfToday = Date().dayNumberOfWeek() else { print("Error getting today's number");  return 0 }
+        
+        var tomorrow = 0
+        tomorrow = numberOfToday == 7 ?  1 : numberOfToday + 1
+        return tomorrow
+    }
 }

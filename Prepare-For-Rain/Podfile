@@ -8,7 +8,7 @@ target 'Prepare-For-Rain' do
   # Pods for Prepare-For-Rain
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'ChameleonFramework', '~> 2.1'
+  pod 'ChameleonFramework'
 
 
   target 'Prepare-For-RainTests' do

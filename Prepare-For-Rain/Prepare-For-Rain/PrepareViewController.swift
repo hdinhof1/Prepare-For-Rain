@@ -25,7 +25,8 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getThreeDaysOfHourlyWeather()
+        //getThreeDaysOfHourlyWeather()
+        getJustTodaysHourlyWeather()
         weatherTableView.dataSource = self
         weatherTableView.delegate = self
         
@@ -38,6 +39,7 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Gets the forecast hour by hour for 3 days 
     // Returns set of all Forecastss 
     func getThreeDaysOfHourlyWeather() {
+        guard self.store.forecasts.first?.hourly?.count != 0 else { return }
         guard let hourly : Set<Hour> = self.store.forecasts.first?.hourly else { print("Couldn't get Set<Hour> from DataStore"); return }
         let hoursArray = Array(hourly)
         
@@ -48,6 +50,76 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
         
         self.hours = sortedHours
+    }
+    
+    // Gets the forecast for today and for tomorrow -- until 4am
+    func getJustTodaysHourlyWeather() {
+        guard let hourly : Set<Hour> = self.store.forecasts.first?.hourly else { print("Couldn't get Set<Hour> from DataStore"); return }
+        let hoursArray = Array(hourly)
+        
+        let tomorrowsNumberOfTheWeek = Date().tomorrowsNumberOfTheWeek()
+        let todaysNumberOfTheWeek = Date().dayNumberOfWeek() ?? 0  // nil-coalescing operator!!
+        
+        // filter just today and tomorrow
+        let filteredHours = hoursArray.filter {
+            guard let time = $0.time else { fatalError("Unable tot unwrap hour's time") }
+            guard let weekdayNumber = time.dayNumberOfWeek() else { fatalError("Unable to unwrap hour's weekday") }
+            
+            if todaysNumberOfTheWeek == 7
+            {
+                return (weekdayNumber == 7) || (weekdayNumber == 1)
+            }
+            else {
+                return weekdayNumber <= tomorrowsNumberOfTheWeek
+            }
+        }
+        
+        // today and tomorrow from midnight - 4am
+        var todayList = [Hour]()
+        for hour in filteredHours
+        {
+            guard let hourIn24 = hour.time?.hourTo24() else { print("Unable to unwrap hour to 24 hour military time"); return }
+            if hour.time?.date() == Date().date() {
+                todayList.append(hour)
+                checkIsGonnaRain(precipitationProbability: hour.precipProbability)
+            }
+            else if hourIn24 == 24
+            {
+                todayList.append(hour)
+                checkIsGonnaRain(precipitationProbability: hour.precipProbability)
+            }
+            else if hourIn24 < 5
+            {
+                todayList.append(hour)
+                checkIsGonnaRain(precipitationProbability: hour.precipProbability)
+            }
+        }
+        
+        let sortedHours = todayList.sorted(by: { (first, second) -> Bool in
+            guard let firstTime = first.time else { fatalError("Unable to unwrap first time") }
+            guard let secondTime = second.time else { fatalError("Unable to unwrap second time") }
+            return firstTime < secondTime
+        })
+        for hour in sortedHours {
+            print(hour.time?.shortenedBestDate() ?? "ERROR")
+        }
+        
+        self.hours = sortedHours
+    }
+    
+    func checkIsGonnaRain(precipitationProbability : NSNumber?) {
+        guard let chanceOfRain = precipitationProbability else { fatalError("Unable to access % chance of rain") }
+        let chanceOfRainAsFloat = chanceOfRain as Float
+        let chanceOfRainAsPercentage = Int(chanceOfRainAsFloat * 100)
+        let MINIMUM_PROBABILITY = 50
+        let isGonnaRain = chanceOfRainAsPercentage > MINIMUM_PROBABILITY
+        
+        if isGonnaRain
+        {
+            view.backgroundColor = UIColor.blue
+            yesNoRainLabel.text = "YES"
+            youShouldOrNtPrepareForRain.text = "You should prepare for rain"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,9 +134,8 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let precipitationProbability = self.hours[indexPath.row].precipProbability else { fatalError("Couldn't unwrap hourly precipitation probability") }
         let precipitationProbabilityAsFloat = precipitationProbability as Float
         let precipitationProbabilityAsPercentage = Int(precipitationProbabilityAsFloat * 100)
-        var isGonnaRain : Bool = false
         let MINIMUM_PROBABILITY = 50
-        if precipitationProbabilityAsPercentage > MINIMUM_PROBABILITY { isGonnaRain = true }
+        let isGonnaRain = precipitationProbabilityAsPercentage > MINIMUM_PROBABILITY
         
         guard let precipitationIntensity = self.hours[indexPath.row].precipIntensity else { fatalError("Unable to unwrap hourly precipitation intensity") }
         let precipitationIntensityAsFloat = precipitationIntensity as Float
@@ -89,18 +160,16 @@ class PrepareViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! WeatherTableViewCell
         cell.timeLabel.text = "\(time.shortenedBestDate())"
-        cell.percentChanceLabel.text = "Pct chance: \(precipitationProbability)%"
+        cell.percentChanceLabel.text = "Pct chance: \(precipitationProbabilityAsPercentage)%"
         cell.intensityRainLabel.text = "Intensity of rain \(precipitationIntensityPerInch)in"
- 
-        
-        
-        print("\(cell.timeLabel.text) \(cell.percentChanceLabel.text) \(cell.intensityRainLabel.text)")
+        print("\(cell.timeLabel.text ?? "NARF") \(cell.percentChanceLabel.text ?? "NARF") \(cell.intensityRainLabel.text ?? "NARF")")
+        print("\(cell.timeLabel.text ?? "NARF") isGonnaRain: \(isGonnaRain) precipAsFloat: \(precipitationProbabilityAsFloat) precip as %: \(precipitationProbabilityAsPercentage)")
         
         if isGonnaRain {
-            cell.tintColor = UIColor.blue
-            yesNoRainLabel.text = "YES"
-            youShouldOrNtPrepareForRain.text = "You should prepare for rain"
-            view.backgroundColor = UIColor.blue
+            cell.backgroundColor = UIColor.blue
+        }
+        else {
+            cell.backgroundColor = UIColor.clear
         }
  
         return cell

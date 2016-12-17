@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03F26EB2ABB994942A3DFC31 /* Pods_Prepare_For_Rain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */; };
+		172349FA1E05D563006D35B8 /* Book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 172349F91E05D563006D35B8 /* Book_icon.png */; };
 		203D38BA89E4E2B90134CF0E /* Pods_Prepare_For_RainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */; };
 		45F0F8BC3A53674337B7F564 /* Pods_Prepare_For_RainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */; };
 		BA1DAE441D9DA8DD003A9987 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		172349F91E05D563006D35B8 /* Book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_icon.png; sourceTree = "<group>"; };
 		3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_RainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392BA7814DAB6F123EF0909C /* Pods-Prepare-For-RainUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainUITests/Pods-Prepare-For-RainUITests.release.xcconfig"; sourceTree = "<group>"; };
 		435C25B1AE1808EF3BF62F40 /* Pods-Prepare-For-RainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainTests/Pods-Prepare-For-RainTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172349FB1E05D5AF006D35B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				172349FC1E05D5CC006D35B8 /* Icons */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		172349FC1E05D5CC006D35B8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				172349F91E05D563006D35B8 /* Book_icon.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		63E94E1C517962B54FEEBFF1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +192,11 @@
 			isa = PBXGroup;
 			children = (
 				BA5BA1131D6E8B8E00E3B55A /* AppDelegate.swift */,
+				BAEFCE3F1DEA1F86009165B2 /* WeatherTableViewCell.swift */,
+				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
+				BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */,
+				BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */,
+				BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */,
 				BAA9194E1D7395D100AE8A81 /* DataStore.swift */,
 				BAA919501D73B8A100AE8A81 /* ForecastAPIClient.swift */,
 				BA5BA1151D6E8B8E00E3B55A /* ViewController.swift */,
@@ -188,15 +211,11 @@
 				BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */,
 				BAC33D411D75016700C9A3CE /* Minute.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
-				BAEFCE3F1DEA1F86009165B2 /* WeatherTableViewCell.swift */,
-				BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */,
-				BA253A9A1D74832E00E3C102 /* ForecastTableViewController.swift */,
-				BA3B91501D77443E00EC2BB1 /* HourTableViewController.swift */,
-				BA253A9C1D74834300E3C102 /* MinuteTableViewController.swift */,
 				BA5BA11D1D6E8B8E00E3B55A /* Assets.xcassets */,
 				BA5BA11F1D6E8B8E00E3B55A /* LaunchScreen.storyboard */,
-				BA5BA1221D6E8B8E00E3B55A /* Info.plist */,
 				BA5BA11A1D6E8B8E00E3B55A /* Prepare_For_Rain.xcdatamodeld */,
+				BA5BA1221D6E8B8E00E3B55A /* Info.plist */,
+				172349FB1E05D5AF006D35B8 /* Supporting Files */,
 			);
 			path = "Prepare-For-Rain";
 			sourceTree = "<group>";
@@ -272,6 +291,7 @@
 				BA5BA12F1D6E8B8E00E3B55A /* Frameworks */,
 				BA5BA1301D6E8B8E00E3B55A /* Resources */,
 				6873531D869F1819BCC2F5AC /* [CP] Copy Pods Resources */,
+				E53926813E0CDCDF39F838E8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,7 +310,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Henry Dinhofer";
 				TargetAttributes = {
 					BA5BA10F1D6E8B8E00E3B55A = {
@@ -343,6 +363,7 @@
 				BA5BA1211D6E8B8E00E3B55A /* LaunchScreen.storyboard in Resources */,
 				BA5BA11E1D6E8B8E00E3B55A /* Assets.xcassets in Resources */,
 				BA5BA1191D6E8B8E00E3B55A /* Main.storyboard in Resources */,
+				172349FA1E05D563006D35B8 /* Book_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +411,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		45158285A57BBC7B4112B43D /* [CP] Check Pods Manifest.lock */ = {
@@ -405,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6873531D869F1819BCC2F5AC /* [CP] Copy Pods Resources */ = {
@@ -435,7 +456,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A59444E4FA37FA98D6BE1F92 /* [CP] Embed Pods Frameworks */ = {
@@ -466,6 +487,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prepare-For-Rain/Pods-Prepare-For-Rain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E53926813E0CDCDF39F838E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prepare-For-RainUITests/Pods-Prepare-For-RainUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4154CBF81247BB00C1DA0C8 /* [CP] Copy Pods Resources */ = {
@@ -567,6 +603,7 @@
 		BA5BA1391D6E8B8E00E3B55A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -617,6 +654,7 @@
 		BA5BA13A1D6E8B8E00E3B55A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
