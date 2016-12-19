@@ -168,6 +168,7 @@ class DataStore {
             newHour.icon = hour["icon"].stringValue
             newHour.precipIntensity = hour["precipIntensity"].floatValue as NSNumber?
             newHour.precipProbability = hour["precipProbability"].floatValue as NSNumber?
+            newHour.precipType = hour["precipType"].string
             newHour.temperature = hour["temperature"].floatValue as NSNumber?
             newHour.apparentTemperature = hour["apparentTemperature"].floatValue as NSNumber?
             newHour.dewPoint = hour["dewPoint"].floatValue as NSNumber?
@@ -177,6 +178,7 @@ class DataStore {
             newHour.cloudCover = hour["cloudCover"].floatValue as NSNumber?
             newHour.pressure = hour["pressure"].floatValue as NSNumber?
             newHour.ozone = hour["ozone"].floatValue as NSNumber?
+//            newHour.summary = hour["summary"].stringValue
             forecast.hourly?.insert(newHour)
             
 

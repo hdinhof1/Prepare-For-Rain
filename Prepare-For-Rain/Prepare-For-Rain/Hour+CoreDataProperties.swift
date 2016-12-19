@@ -2,17 +2,19 @@
 //  Hour+CoreDataProperties.swift
 //  Prepare-For-Rain
 //
-//  Created by Henry Dinhofer on 8/29/16.
+//  Created by Henry Dinhofer on 12/18/16.
 //  Copyright © 2016 Henry Dinhofer. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
 //
 
 import Foundation
 import CoreData
 
+
 extension Hour {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Hour> {
+        return NSFetchRequest<Hour>(entityName: "Hour");
+    }
 
     @NSManaged var apparentTemperature: NSNumber?
     @NSManaged var cloudCover: NSNumber?
@@ -28,6 +30,7 @@ extension Hour {
     @NSManaged var time: Date?
     @NSManaged var visibility: NSNumber?
     @NSManaged var windSpeed: NSNumber?
+    @NSManaged var precipType: String?
     @NSManaged var forecast: Forecast?
 
 }

@@ -1,76 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Day" representedClassName=".Day" syncable="YES">
-        <attribute name="apparentTemperatureMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="apparentTemperatureMaxTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="apparentTemperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="apparentTemperatureMinTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apparentTemperatureMax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="apparentTemperatureMaxTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="apparentTemperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="apparentTemperatureMinTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipIntensityMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipIntensityMaxTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipIntensityMax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipIntensityMaxTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="precipType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sunriseTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="sunsetTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="temperatureMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="temperatureMaxTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="temperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="temperatureMinTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sunriseTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sunsetTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="temperatureMax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="temperatureMaxTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="temperatureMin" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="temperatureMinTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Forecast" inverseName="daily" inverseEntity="Forecast" syncable="YES"/>
     </entity>
     <entity name="Forecast" representedClassName=".Forecast" syncable="YES">
-        <attribute name="currentApparentTemp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentHumidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentNearestStormDistance" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="currentOzone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentPrecipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentPrecipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentPressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currentTemp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentApparentTemp" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentHumidity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentNearestStormDistance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentOzone" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentPrecipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentPrecipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentPressure" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentTemp" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summaryDaily" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timeZone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="daily" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Day" inverseName="forecast" inverseEntity="Day" syncable="YES"/>
         <relationship name="hourly" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hour" inverseName="forecast" inverseEntity="Hour" syncable="YES"/>
         <relationship name="minutely" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Minute" inverseName="forecast" inverseEntity="Minute" syncable="YES"/>
     </entity>
     <entity name="Hour" representedClassName=".Hour" syncable="YES">
-        <attribute name="apparentTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="cloudCover" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="dewPoint" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apparentTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="cloudCover" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dewPoint" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ozone" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="visibility" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="visibility" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Forecast" inverseName="hourly" inverseEntity="Forecast" syncable="YES"/>
         <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Hour"/>
         </fetchedProperty>
     </entity>
     <entity name="Minute" representedClassName=".Minute" syncable="YES">
-        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="precipIntensity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="precipProbability" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Forecast" inverseName="minutely" inverseEntity="Forecast" syncable="YES"/>
     </entity>
     <elements>
         <element name="Day" positionX="-297" positionY="297" width="128" height="375"/>
         <element name="Forecast" positionX="-65" positionY="14" width="128" height="270"/>
-        <element name="Hour" positionX="-72" positionY="316" width="128" height="296"/>
+        <element name="Hour" positionX="-72" positionY="316" width="128" height="314"/>
         <element name="Minute" positionX="115" positionY="288" width="128" height="103"/>
     </elements>
 </model>

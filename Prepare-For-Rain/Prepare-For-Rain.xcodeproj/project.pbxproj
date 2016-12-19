@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03F26EB2ABB994942A3DFC31 /* Pods_Prepare_For_Rain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833623573D8B98868C0A2A65 /* Pods_Prepare_For_Rain.framework */; };
 		172349FA1E05D563006D35B8 /* Book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 172349F91E05D563006D35B8 /* Book_icon.png */; };
+		17234A121E074E42006D35B8 /* Hour+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17234A101E074E42006D35B8 /* Hour+CoreDataClass.swift */; };
+		17234A131E074E42006D35B8 /* Hour+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17234A111E074E42006D35B8 /* Hour+CoreDataProperties.swift */; };
 		203D38BA89E4E2B90134CF0E /* Pods_Prepare_For_RainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */; };
 		45F0F8BC3A53674337B7F564 /* Pods_Prepare_For_RainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFE53E6A9E4682EE160D1B /* Pods_Prepare_For_RainUITests.framework */; };
 		BA1DAE441D9DA8DD003A9987 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DAE431D9DA8DD003A9987 /* PrepareViewController.swift */; };
@@ -29,8 +31,6 @@
 		BAA9196B1D73D65700AE8A81 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9196A1D73D65700AE8A81 /* Extensions.swift */; };
 		BAC33D421D75016700C9A3CE /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3A1D75016700C9A3CE /* Day+CoreDataProperties.swift */; };
 		BAC33D431D75016700C9A3CE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3B1D75016700C9A3CE /* Day.swift */; };
-		BAC33D441D75016700C9A3CE /* Hour+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3C1D75016700C9A3CE /* Hour+CoreDataProperties.swift */; };
-		BAC33D451D75016700C9A3CE /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3D1D75016700C9A3CE /* Hour.swift */; };
 		BAC33D461D75016700C9A3CE /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3E1D75016700C9A3CE /* Forecast+CoreDataProperties.swift */; };
 		BAC33D471D75016700C9A3CE /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D3F1D75016700C9A3CE /* Forecast.swift */; };
 		BAC33D481D75016700C9A3CE /* Minute+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */; };
@@ -57,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		172349F91E05D563006D35B8 /* Book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_icon.png; sourceTree = "<group>"; };
+		17234A101E074E42006D35B8 /* Hour+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hour+CoreDataClass.swift"; sourceTree = "<group>"; };
+		17234A111E074E42006D35B8 /* Hour+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hour+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3700D44FBD9F8E0D10D28ED0 /* Pods_Prepare_For_RainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prepare_For_RainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392BA7814DAB6F123EF0909C /* Pods-Prepare-For-RainUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainUITests/Pods-Prepare-For-RainUITests.release.xcconfig"; sourceTree = "<group>"; };
 		435C25B1AE1808EF3BF62F40 /* Pods-Prepare-For-RainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prepare-For-RainTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prepare-For-RainTests/Pods-Prepare-For-RainTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		BAA9196A1D73D65700AE8A81 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAC33D3A1D75016700C9A3CE /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAC33D3B1D75016700C9A3CE /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		BAC33D3C1D75016700C9A3CE /* Hour+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hour+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BAC33D3D1D75016700C9A3CE /* Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hour.swift; sourceTree = "<group>"; };
 		BAC33D3E1D75016700C9A3CE /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAC33D3F1D75016700C9A3CE /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Minute+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -204,10 +204,10 @@
 				BAA9196A1D73D65700AE8A81 /* Extensions.swift */,
 				BAC33D3A1D75016700C9A3CE /* Day+CoreDataProperties.swift */,
 				BAC33D3B1D75016700C9A3CE /* Day.swift */,
-				BAC33D3C1D75016700C9A3CE /* Hour+CoreDataProperties.swift */,
-				BAC33D3D1D75016700C9A3CE /* Hour.swift */,
 				BAC33D3E1D75016700C9A3CE /* Forecast+CoreDataProperties.swift */,
 				BAC33D3F1D75016700C9A3CE /* Forecast.swift */,
+				17234A101E074E42006D35B8 /* Hour+CoreDataClass.swift */,
+				17234A111E074E42006D35B8 /* Hour+CoreDataProperties.swift */,
 				BAC33D401D75016700C9A3CE /* Minute+CoreDataProperties.swift */,
 				BAC33D411D75016700C9A3CE /* Minute.swift */,
 				BA5BA1171D6E8B8E00E3B55A /* Main.storyboard */,
@@ -316,7 +316,7 @@
 					BA5BA10F1D6E8B8E00E3B55A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 9DUF68P9SK;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -528,8 +528,8 @@
 			files = (
 				BAEFCE401DEA1F86009165B2 /* WeatherTableViewCell.swift in Sources */,
 				BA253A9D1D74834300E3C102 /* MinuteTableViewController.swift in Sources */,
-				BAC33D441D75016700C9A3CE /* Hour+CoreDataProperties.swift in Sources */,
 				BAA919511D73B8A100AE8A81 /* ForecastAPIClient.swift in Sources */,
+				17234A121E074E42006D35B8 /* Hour+CoreDataClass.swift in Sources */,
 				BA5BA1161D6E8B8E00E3B55A /* ViewController.swift in Sources */,
 				BAC33D471D75016700C9A3CE /* Forecast.swift in Sources */,
 				BA5BA1451D6E8C1F00E3B55A /* Secrets.swift in Sources */,
@@ -539,10 +539,10 @@
 				BAA9196B1D73D65700AE8A81 /* Extensions.swift in Sources */,
 				BAC33D461D75016700C9A3CE /* Forecast+CoreDataProperties.swift in Sources */,
 				BAA9194F1D7395D100AE8A81 /* DataStore.swift in Sources */,
+				17234A131E074E42006D35B8 /* Hour+CoreDataProperties.swift in Sources */,
 				BA253A9B1D74832E00E3C102 /* ForecastTableViewController.swift in Sources */,
 				BA1DAE441D9DA8DD003A9987 /* PrepareViewController.swift in Sources */,
 				BAC33D421D75016700C9A3CE /* Day+CoreDataProperties.swift in Sources */,
-				BAC33D451D75016700C9A3CE /* Hour.swift in Sources */,
 				BA3B91511D77443E00EC2BB1 /* HourTableViewController.swift in Sources */,
 				BAC33D491D75016700C9A3CE /* Minute.swift in Sources */,
 				BA5BA1141D6E8B8E00E3B55A /* AppDelegate.swift in Sources */,
@@ -702,10 +702,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Prepare-For-Rain/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HLD.Prepare-For-Rain";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -716,6 +718,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Prepare-For-Rain/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HLD.Prepare-For-Rain";
